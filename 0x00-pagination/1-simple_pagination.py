@@ -37,14 +37,9 @@ class Server:
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
         """ Get the cached pages
         """
-        result = []
-        assert isinstance(page, int)
-        assert isinstance(page_size, int)
-        assert page > 0 and page_size > 0
+        assert isinstance(page, int) and page > 0
+        assert isinstance(page_size, int) and page_size > 0
         start, end = index_range(page, page_size)
-        for x in range(start, end):
-            try:
-                result.append(self.__dataset[x])
-            except IndexError:
-                return []
-        return result
+        if start > len(self.__dataset):
+            return []
+        return self.__dataset[start: end]
