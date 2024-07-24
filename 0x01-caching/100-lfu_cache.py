@@ -46,7 +46,7 @@ class LFUCache(BaseCaching):
         self.order.append(key)
 
     def least_frequent(self):
-        """
+        """Return the least frequently used key
         """
         least = min(self.counter.values())
         least_values = [value for value, freq in self.counter.items()
