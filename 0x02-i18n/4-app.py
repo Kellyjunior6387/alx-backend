@@ -2,6 +2,7 @@
 """Module to config babel"""
 from flask import Flask, render_template, g, request
 from flask_babel import Babel
+app.url_map.strict_slashes = False
 app = Flask(__name__)
 
 
