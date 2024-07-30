@@ -25,11 +25,7 @@ def get_locale():
 @app.route('/')
 def index():
     """Function to render 0-index template"""
-    home_title = gettext('Welcome to Holberton')
-    home_header = gettext('Hello world')
-
-    return render_template('2-index.html', title=home_title,
-                           header=home_header)
+    return render_template('2-index.html')
 
 
 if __name__ == '__main__':
