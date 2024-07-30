@@ -3,9 +3,9 @@
 from flask import Flask, render_template, g, request
 from flask_babel import Babel
 from typing import Dict, Union
-app = Flask(__name__)
 import pytz
 from pytz.exceptions import UnknownTimeZoneError
+app = Flask(__name__)
 
 
 users = {
@@ -62,7 +62,6 @@ def before_request() -> None:
 def index() -> str:
     """Function to render 0-index template"""
     return render_template('6-index.html')
-
 
 
 @babel.timezoneselector

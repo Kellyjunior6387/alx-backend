@@ -4,10 +4,9 @@ from flask import Flask, render_template, g, request
 from flask_babel import Babel, format_datetime
 from datetime import datetime
 from typing import Dict, Union
-app = Flask(__name__)
 import pytz
 from pytz.exceptions import UnknownTimeZoneError
-
+app = Flask(__name__)
 
 users = {
     1: {"name": "Balou", "locale": "fr", "timezone": "Europe/Paris"},
@@ -63,7 +62,7 @@ def before_request() -> None:
 def index() -> str:
     """Function to render 0-index template"""
     current_time = datetime.now(pytz.timezone(get_timezone()))
-    formatted_time = format_datetime(current_time, locale=get_locale())
+    formatted_time = format_datetime(current_time)
     return render_template('8-index.html', time=formatted_time)
 
 
